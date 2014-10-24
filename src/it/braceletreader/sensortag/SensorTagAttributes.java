@@ -1,0 +1,20 @@
+package it.braceletreader.sensortag;
+
+import java.util.UUID;
+
+public final class SensorTagAttributes
+{
+	public final static UUID ACCELEROMETER_SERVICE = UUID.fromString("F000AA10-0451-4000-B000-000000000000");
+	public final static UUID GYROSCOPE_SERVICE = UUID.fromString("F000AA50-0451-4000-B000-000000000000");
+	public final static UUID MAGNETOMETER_SERVICE = UUID.fromString("F000AA30-0451-4000-B000-000000000000");
+
+	public final static UUID ACCELEROMETER_CONFIG = UUID.fromString("F000AA12-0451-4000-B000-000000000000");
+	public final static UUID GYROSCOPE_CONFIG = UUID.fromString("F000AA52-0451-4000-B000-000000000000");
+	public final static UUID MAGNETOMETER_CONFIG = UUID.fromString("F000AA32-0451-4000-B000-000000000000");
+
+	public final static UUID ACCELEROMETER_DATA = UUID.fromString("F000AA11-0451-4000-B000-000000000000");
+	public final static UUID GYROSCOPE_DATA = UUID.fromString("F000AA51-0451-4000-B000-000000000000");
+	public final static UUID MAGNETOMETER_DATA = UUID.fromString("F000AA31-0451-4000-B000-000000000000");
+
+	public final static UUID CONFIG_DESCRIPTOR = UUID.fromString("00002902-0000-1000-8000-00805F9B34FB");
+}

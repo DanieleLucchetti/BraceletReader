@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">BraceletReader</string>
+    <string name="accelerometer">Accelerometro</string>
+    <string name="x_accelerometer">x</string>
+    <string name="y_accelerometer">y</string>
+    <string name="z_accelerometer">z</string>
+    <string name="gyroscope">Giroscopio</string>
+    <string name="x_gyroscope">x</string>
+    <string name="y_gyroscope">y</string>
+    <string name="z_gyroscope">z</string>
+    <string name="bracelet_selection">Seleziona braccialetto</string>
+    <string name="wifi_selection">Seleziona rete Wi-Fi</string>
+    <string name="error_bluetooth_not_supported">Bluetooth non supportato!</string>
+    <string name="error_not_connected">Impossibile connettersi</string>
+    <string name="closing_message">Chiudi</string>
+    <string name="dialog_title">Dispositivi accoppiati</string>
+    <string name="UUID">57c40e88-904a-6301-ac77-7719f9902b15</string>
+    <string name="server_URL">http://test-ws.cowbell.it:8080/</string>
+    <string name="tab1_name">Applicazione</string>
+    <string name="tab2_name">Impostazioni</string>
+    <string name="not_connected_state">Non connesso</string>
+    <string name="connected_to_state">Connesso a</string>
+    <string name="name_textview_hint">Nome</string>
+    <string name="server_address_textview_hint">Indirizzo server</string>
+    <string name="ok">Ok</string>
+    <string name="search_other_device">Cerca altri...</string>
+    <string name="error_max_connection_possible">Si possono connettere al massimo 7 dispositivi</string>
+
+</resources>

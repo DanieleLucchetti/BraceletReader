@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <ScrollView
+            android:id="@+id/scrollView1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" >
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" >
+
+                    <ImageButton
+                        android:id="@+id/imageButton1"
+                        android:layout_width="130dp"
+                        android:layout_height="130dp"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/image_button" />
+
+                    <EditText
+                        android:id="@+id/name_edittext"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:ems="10"
+                        android:hint="Nome" >
+
+                        <requestFocus />
+                    </EditText>
+                </LinearLayout>
+
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <ExpandableListView
+                    android:id="@+id/expandableListView1"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" >
+
+                </ExpandableListView>
+
+            </LinearLayout>
+        </ScrollView>
+
+    </RelativeLayout>
