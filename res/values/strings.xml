@@ -13,7 +13,7 @@
     <string name="bracelet_selection">Seleziona braccialetto</string>
     <string name="wifi_selection">Seleziona rete Wi-Fi</string>
     <string name="error_bluetooth_not_supported">Bluetooth non supportato!</string>
-    <string name="error_not_connected">Impossibile connettersi</string>
+    <string name="error_not_connected">Impossibile connettersi a </string>
     <string name="closing_message">Chiudi</string>
     <string name="dialog_title">Dispositivi accoppiati</string>
     <string name="UUID">57c40e88-904a-6301-ac77-7719f9902b15</string>
@@ -27,5 +27,6 @@
     <string name="ok">Ok</string>
     <string name="search_other_device">Cerca altri...</string>
     <string name="error_max_connection_possible">Si possono connettere al massimo 7 dispositivi</string>
+    <string name="choice_bluetooth_le">Utilizza dispositivi Bluetooth LE</string>
 
 </resources>

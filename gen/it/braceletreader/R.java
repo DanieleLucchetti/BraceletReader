@@ -1088,6 +1088,7 @@ containing a value of this type.
         public static final int activity_chooser_view_content=0x7f050025;
         public static final int always=0x7f05000b;
         public static final int beginning=0x7f050011;
+        public static final int bluetooth_le_searching_checkbox=0x7f05005c;
         public static final int bluetooth_state_textview=0x7f050044;
         public static final int bracelet_selection_button=0x7f050058;
         public static final int checkbox=0x7f05002d;
@@ -1266,6 +1267,7 @@ containing a value of this type.
         public static final int accelerometer=0x7f0a000e;
         public static final int app_name=0x7f0a000d;
         public static final int bracelet_selection=0x7f0a0016;
+        public static final int choice_bluetooth_le=0x7f0a0027;
         public static final int closing_message=0x7f0a001a;
         public static final int connected_to_state=0x7f0a0021;
         public static final int dialog_title=0x7f0a001b;

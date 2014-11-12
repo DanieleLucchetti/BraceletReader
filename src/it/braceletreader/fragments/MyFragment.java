@@ -9,21 +9,23 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-/*
+/**
  * 
  * My implementation of Fragment to navigate from tab
  * 
- * Author: Lucchetti Daniele
+ * \author Lucchetti Daniele
  * 
  */
 public class MyFragment extends Fragment implements android.app.ActionBar.TabListener
 {
-	private int m_layout;
-	
+	private int m_layout;	// ID of layout to show
+
 	/**
+	 * Constructor
 	 * 
+	 * \param layoutID ID of layout to show
 	 */
-	public MyFragment ( int layoutID )
+	public MyFragment( int layoutID )
 	{
 		super();
 		this.m_layout = layoutID;
@@ -37,7 +39,7 @@ public class MyFragment extends Fragment implements android.app.ActionBar.TabLis
 	}
 
 	/**
-	 * 
+	 * Called when a Tab is reselected
 	 */
 	@Override
 	public void onTabReselected( Tab tab, FragmentTransaction ft )
@@ -46,7 +48,7 @@ public class MyFragment extends Fragment implements android.app.ActionBar.TabLis
 	}
 
 	/**
-	 * 
+	 * Called when a Tab is selected
 	 */
 	@Override
 	public void onTabSelected( Tab tab, FragmentTransaction ft )
@@ -55,7 +57,7 @@ public class MyFragment extends Fragment implements android.app.ActionBar.TabLis
 	}
 
 	/**
-	 * 
+	 * Called when a Tab is unselected
 	 */
 	@Override
 	public void onTabUnselected( Tab tab, FragmentTransaction ft )

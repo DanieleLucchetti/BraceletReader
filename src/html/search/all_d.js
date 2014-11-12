@@ -1,0 +1,26 @@
+var searchData=
+[
+  ['selectbracelets',['selectBracelets',['../classit_1_1braceletreader_1_1_bracelet_reader.html#ae5a57967025b762d2ff2bbdf527cf7c2',1,'it::braceletreader::BraceletReader']]],
+  ['sender',['Sender',['../classit_1_1braceletreader_1_1_sender.html',1,'it::braceletreader']]],
+  ['sender',['Sender',['../classit_1_1braceletreader_1_1_sender.html#aaad8e5318ab167acd144387ff5480466',1,'it::braceletreader::Sender']]],
+  ['sensortagaccelerometer',['SensorTagAccelerometer',['../classit_1_1braceletreader_1_1sensortag_1_1_sensor_tag_accelerometer.html',1,'it::braceletreader::sensortag']]],
+  ['sensortaggyroscope',['SensorTagGyroscope',['../classit_1_1braceletreader_1_1sensortag_1_1_sensor_tag_gyroscope.html',1,'it::braceletreader::sensortag']]],
+  ['server_5faddress',['SERVER_ADDRESS',['../classit_1_1braceletreader_1_1_bracelet_reader.html#a6feac63817ce9036bd8c909521c2cb22',1,'it::braceletreader::BraceletReader']]],
+  ['servicestarted',['serviceStarted',['../classit_1_1braceletreader_1_1_bracelet_reader.html#a80e99dbac87a0df56d926b2543772ca1',1,'it::braceletreader::BraceletReader']]],
+  ['servicestopped',['serviceStopped',['../classit_1_1braceletreader_1_1_bracelet_reader.html#ad9e7b70a60a6067ad4f9f0cce981b48e',1,'it::braceletreader::BraceletReader']]],
+  ['setbluetoothlemode',['setBluetoothLeMode',['../classit_1_1braceletreader_1_1_bracelet_reader.html#a0de71afff7f6474736a7746fd544b3a2',1,'it::braceletreader::BraceletReader']]],
+  ['settimestamp',['setTimestamp',['../classit_1_1braceletreader_1_1_data.html#a897eee68ac44fe22a58891eb235bb8a4',1,'it::braceletreader::Data']]],
+  ['settingfragment',['SettingFragment',['../classit_1_1braceletreader_1_1fragments_1_1_setting_fragment.html',1,'it::braceletreader::fragments']]],
+  ['settingfragment',['SettingFragment',['../classit_1_1braceletreader_1_1fragments_1_1_setting_fragment.html#a71c8d822d1375ee6a49753d47d37abda',1,'it::braceletreader::fragments::SettingFragment']]],
+  ['settype',['setType',['../classit_1_1braceletreader_1_1_data.html#ae66abd55a42868eed4abaaa30a3dc42d',1,'it::braceletreader::Data']]],
+  ['setuserimage',['setUserImage',['../classit_1_1braceletreader_1_1_bracelet_reader.html#a7570a85eb7398fbf4cc32c19343ef691',1,'it::braceletreader::BraceletReader']]],
+  ['setx',['setX',['../classit_1_1braceletreader_1_1_data.html#acbee21f88b875b09b039967fa83d121e',1,'it::braceletreader::Data']]],
+  ['sety',['setY',['../classit_1_1braceletreader_1_1_data.html#a09a49d9b07e3316bfddf6051fe31fbd6',1,'it::braceletreader::Data']]],
+  ['setz',['setZ',['../classit_1_1braceletreader_1_1_data.html#a29d3b774bcbbede077855439a369ec16',1,'it::braceletreader::Data']]],
+  ['shareddata',['SharedData',['../classit_1_1braceletreader_1_1_shared_data.html',1,'it::braceletreader']]],
+  ['showalertdialog',['showAlertDialog',['../classit_1_1braceletreader_1_1_bracelet_reader.html#a3b0a48cce580819ef7992d3c28997956',1,'it::braceletreader::BraceletReader']]],
+  ['showsettings',['showSettings',['../classit_1_1braceletreader_1_1managers_1_1_bluetooth_manager.html#a920bc383b7d7104d657af2d123fc9c19',1,'it::braceletreader::managers::BluetoothManager']]],
+  ['startlescan',['startLeScan',['../classit_1_1braceletreader_1_1managers_1_1_bluetooth_manager.html#a4c4ac2b28355a5bfedd77c24e540dcac',1,'it::braceletreader::managers::BluetoothManager']]],
+  ['startwificonnection',['startWifiConnection',['../classit_1_1braceletreader_1_1_bracelet_reader.html#a17f8413967a36cd8d45b5472258d10dc',1,'it::braceletreader::BraceletReader']]],
+  ['stoplescan',['stopLeScan',['../classit_1_1braceletreader_1_1managers_1_1_bluetooth_manager.html#a8ed5e11d607bac698de47a915da955c4',1,'it::braceletreader::managers::BluetoothManager']]]
+];

@@ -1,12 +1,15 @@
 package it.braceletreader.managers;
 
+import java.util.HashSet;
 import java.util.Set;
 
 import android.app.Service;
 import android.bluetooth.BluetoothAdapter;
+import android.bluetooth.BluetoothAdapter.LeScanCallback;
 import android.bluetooth.BluetoothDevice;
 import android.content.Intent;
 import android.os.Binder;
+import android.os.Handler;
 import android.os.IBinder;
 import android.provider.Settings;
 
@@ -17,10 +20,12 @@ import android.provider.Settings;
  * Author: Lucchetti Daniele
  * 
  */
-public class BluetoothManager extends Service
+public class BluetoothManager extends Service implements LeScanCallback
 {
 	IBinder m_binder;
 	BluetoothAdapter m_bluetoothAdapter;
+	BluetoothLeCallbacks m_callback;
+	Set<BluetoothDevice> m_foundDevices;
 
 	/**
 	 * 
@@ -91,6 +96,56 @@ public class BluetoothManager extends Service
 	public Set<BluetoothDevice> getBondedDevices()
 	{
 		return this.m_bluetoothAdapter.getBondedDevices();
+	}
+
+	/**
+	 * Start Bluetooth Low Energy scanning
+	 * 
+	 * callback is the one who manages the found devices
+	 * 
+	 * timeout indicates when stopping scan automatically is milliseconds
+	 */
+	public void startLeScan( final BluetoothLeCallbacks callback, int timeout )
+	{
+		this.m_callback = callback;
+		this.m_foundDevices = new HashSet<BluetoothDevice>();
+		Handler handler = new Handler();
+		handler.postDelayed(new Runnable()
+		{
+			@Override
+			public void run()
+			{
+				m_bluetoothAdapter.stopLeScan(BluetoothManager.this);
+				m_callback.leScanStopped(m_foundDevices);
+				m_foundDevices = null;
+				m_callback = null;
+			}
+		}, timeout);
+
+		this.m_bluetoothAdapter.startLeScan(this);
+	}
+
+	/**
+	 * Stop Bluetooth Low Energy scanning
+	 * 
+	 * callback is the one who manages the found devices
+	 */
+	public void stopLeScan()
+	{
+		this.m_bluetoothAdapter.stopLeScan(this);
+		this.m_callback.leScanStopped(this.m_foundDevices);
+		this.m_foundDevices = null;
+		this.m_callback = null;
+	}
+
+	/**
+	 * Callback for devices LE found
+	 */
+	@Override
+	public void onLeScan( BluetoothDevice device, int rssi, byte[] scanRecord )
+	{
+		this.m_foundDevices.add(device);
+		this.m_callback.deviceFound(device, rssi, scanRecord);
 	}
 
 	/**

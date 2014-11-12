@@ -10,21 +10,21 @@ import org.apache.http.impl.client.DefaultHttpClient;
 import org.json.JSONArray;
 import org.json.JSONException;
 
-/*
+/**
  * 
  * Thread that convert the data in DataManager in JSON string and sent it to the HTTP server
  * 
- * Author: Lucchetti Daniele
+ * \author Lucchetti Daniele
  * 
  */
 public class Sender extends Thread
 {
-	DataManager<Data> m_dataManager;
-	String m_URL; // Server URL
-	boolean m_stop; // When is set true, the Thread die
+	private DataManager<Data> m_dataManager;	// Data structure containing data to send to server
+	private String m_URL; 						// Server URL
+	private boolean m_stop; 					// When is set true, the Thread die
 
 	/**
-	 *
+	 * Constructor
 	 */
 	public Sender(DataManager<Data> dataManager, String URL)
 	{

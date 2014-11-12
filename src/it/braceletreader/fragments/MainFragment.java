@@ -23,35 +23,34 @@ import android.widget.TextView;
  * 
  * Fragment that show the main layout
  * 
- * Author: Lucchetti Daniele
+ * \author Lucchetti Daniele
  * 
  */
 public class MainFragment extends MyFragment implements Observer
 {
-	BraceletReader m_braceletReader;
-	SharedData m_sharedData;
-	ImageView m_imageView;
-	TextView m_username;
-	TextView m_x_accelerometer;
-	TextView m_y_accelerometer;
-	TextView m_z_accelerometer;
-	TextView m_x_gyroscope;
-	TextView m_y_gyroscope;
-	TextView m_z_gyroscope;
-	Handler m_handler; // Handler to update the UI
+	private SharedData m_sharedData;			// Data structure to share data between various Fragment
+
+	private ImageView m_imageView;				// ImageView to show user image
+	private TextView m_username;				// TextView to show username
+	private TextView m_x_accelerometer;			// TextView to show x-axis accelerometer detected
+	private TextView m_y_accelerometer;			// TextView to show y-axis accelerometer detected
+	private TextView m_z_accelerometer;			// TextView to show z-axis accelerometer detected
+	private TextView m_x_gyroscope;				// TextView to show x-axis gyroscope detected
+	private TextView m_y_gyroscope;				// TextView to show y-axis gyroscope detected
+	private TextView m_z_gyroscope;				// TextView to show z-axis gyroscope detected
+	private Handler m_handler;					// Handler to update the UI
 
 	/**
-	 * 
+	 * Costructor
 	 */
-	public MainFragment(BraceletReader braceletReader)
+	public MainFragment()
 	{
 		super(R.layout.main_tab_bracelet_reader);
-		this.m_braceletReader = braceletReader;
 		this.m_sharedData = SharedData.getInstance();
 	}
 
 	/**
-	 * 
+	 * Called when the fragment is created
 	 */
 	@Override
 	public void onCreate( Bundle savedInstanceState )
@@ -67,23 +66,24 @@ public class MainFragment extends MyFragment implements Observer
 			public void handleMessage( Message inputMessage )
 			{
 				Data data = (Data) inputMessage.obj;
+				// Check type of data
 				if ( data.getType().equals("accelerometer") )
 				{
-					m_x_accelerometer.setText(String.valueOf(data.getX()).substring(0, 6));
-					m_y_accelerometer.setText(String.valueOf(data.getY()).substring(0, 6));
-					m_z_accelerometer.setText(String.valueOf(data.getZ()).substring(0, 6));
+					m_x_accelerometer.setText(String.valueOf(data.getX()));
+					m_y_accelerometer.setText(String.valueOf(data.getY()));
+					m_z_accelerometer.setText(String.valueOf(data.getZ()));
 				} else
 				{
-					m_x_gyroscope.setText(String.valueOf(data.getX()).substring(0, 6));
-					m_y_gyroscope.setText(String.valueOf(data.getY()).substring(0, 6));
-					m_z_gyroscope.setText(String.valueOf(data.getZ()).substring(0, 6));
+					m_x_gyroscope.setText(String.valueOf(data.getX()));
+					m_y_gyroscope.setText(String.valueOf(data.getY()));
+					m_z_gyroscope.setText(String.valueOf(data.getZ()));
 				}
 			}
 		};
 	}
 
 	/**
-	 * 
+	 * Called when the view is created
 	 */
 	@Override
 	public View onCreateView( LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState )
@@ -105,12 +105,13 @@ public class MainFragment extends MyFragment implements Observer
 		this.m_y_gyroscope = (TextView) view.findViewById(R.id.y_gyroscope_textview);
 		this.m_z_gyroscope = (TextView) view.findViewById(R.id.z_gyroscope_textview);
 
+		// Add to SharedData to get notifications
 		this.m_sharedData.addObserver(this);
 		return view;
 	}
 
 	/**
-	 * 
+	 * Called when the view is destroyed
 	 */
 	@Override
 	public void onDestroyView()
@@ -122,7 +123,7 @@ public class MainFragment extends MyFragment implements Observer
 	/**
 	 * Update the UI
 	 * 
-	 * data Object is a JSON string
+	 * \param data A JSON string
 	 */
 	public void updateUI( Object data )
 	{
@@ -131,6 +132,9 @@ public class MainFragment extends MyFragment implements Observer
 		message.sendToTarget();
 	}
 
+	/**
+	 * Called when SharedData is modified
+	 */
 	@Override
 	public void update( Observable observable, Object data )
 	{

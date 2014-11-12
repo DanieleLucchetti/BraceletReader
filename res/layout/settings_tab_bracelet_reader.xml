@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/scrollView1"
-    android:layout_width="wrap_content"
+    android:layout_width="match_parent"
     android:layout_height="match_parent" >
 
     <LinearLayout
@@ -31,15 +31,17 @@
                 android:layout_marginRight="10dp"
                 android:layout_weight="1"
                 android:ems="10"
-                android:hint="@string/name_textview_hint" />
+                android:hint="@string/name_textview_hint" >
 
+                <requestFocus />
+            </EditText>
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="30dp"
-            android:layout_marginTop="30dp" >
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="10dp" >
 
             <Button
                 android:id="@+id/bracelet_selection_button"
@@ -70,7 +72,9 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" >
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="10dp" >
 
             <Button
                 android:id="@+id/wifi_selection_button"
@@ -87,5 +91,14 @@
                 android:text="@string/not_connected_state"
                 android:textSize="18sp" />
         </LinearLayout>
+
+        <CheckBox
+            android:id="@+id/bluetooth_le_searching_checkbox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:text="@string/choice_bluetooth_le" />
+
     </LinearLayout>
+
 </ScrollView>
