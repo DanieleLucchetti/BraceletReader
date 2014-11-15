@@ -38,6 +38,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
       <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
+      <li><a href="files.html"><span>Files</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
         <span class="left">
@@ -93,31 +94,24 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">it.braceletreader.listeners.BraceletListener Class Reference<span class="mlabels"><span class="mlabel">abstract</span></span></div>  </div>
 </div><!--header-->
 <div class="contents">
-
-<p>Thread that connect to a single bracelet and receive data.  
- <a href="classit_1_1braceletreader_1_1listeners_1_1_bracelet_listener.html#details">More...</a></p>
 <div class="dynheader">
 Inheritance diagram for it.braceletreader.listeners.BraceletListener:</div>
 <div class="dyncontent">
  <div class="center">
   <img src="classit_1_1braceletreader_1_1listeners_1_1_bracelet_listener.png" usemap="#it.braceletreader.listeners.BraceletListener_map" alt=""/>
   <map id="it.braceletreader.listeners.BraceletListener_map" name="it.braceletreader.listeners.BraceletListener_map">
-<area href="classit_1_1braceletreader_1_1listeners_1_1_bluetooth_bracelet_listener.html" title="Implementation of BraceletListener to communicate with traditional Bluetooth device. " alt="it.braceletreader.listeners.BluetoothBraceletListener" shape="rect" coords="0,112,319,136"/>
-<area href="classit_1_1braceletreader_1_1listeners_1_1_bluetooth_le_bracelet_listener.html" title="Implementation of BraceletListener for Bluetooth LE devices. " alt="it.braceletreader.listeners.BluetoothLeBraceletListener" shape="rect" coords="329,112,648,136"/>
+<area href="classit_1_1braceletreader_1_1listeners_1_1_bluetooth_bracelet_listener.html" alt="it.braceletreader.listeners.BluetoothBraceletListener" shape="rect" coords="0,112,319,136"/>
+<area href="classit_1_1braceletreader_1_1listeners_1_1_bluetooth_le_bracelet_listener.html" alt="it.braceletreader.listeners.BluetoothLeBraceletListener" shape="rect" coords="329,112,648,136"/>
 </map>
  </div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a48d27054c1c70c970c4d1e1cc2c92308"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classit_1_1braceletreader_1_1listeners_1_1_bracelet_listener.html#a48d27054c1c70c970c4d1e1cc2c92308">BraceletListener</a> (int id, <a class="el" href="classit_1_1braceletreader_1_1_bracelet_reader.html">BraceletReader</a> braceletReader, DataManager&lt; <a class="el" href="classit_1_1braceletreader_1_1_data.html">Data</a> &gt; dataManager, BluetoothDevice device)</td></tr>
-<tr class="memdesc:a48d27054c1c70c970c4d1e1cc2c92308"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor.  <a href="#a48d27054c1c70c970c4d1e1cc2c92308">More...</a><br /></td></tr>
 <tr class="separator:a48d27054c1c70c970c4d1e1cc2c92308"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5555c23c7f6378ce87c2fdafc6947302"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a5555c23c7f6378ce87c2fdafc6947302"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classit_1_1braceletreader_1_1listeners_1_1_bracelet_listener.html#a5555c23c7f6378ce87c2fdafc6947302">alt</a> ()</td></tr>
-<tr class="memdesc:a5555c23c7f6378ce87c2fdafc6947302"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stop the Thread. <br /></td></tr>
+<tr class="memitem:a5555c23c7f6378ce87c2fdafc6947302"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classit_1_1braceletreader_1_1listeners_1_1_bracelet_listener.html#a5555c23c7f6378ce87c2fdafc6947302">alt</a> ()</td></tr>
 <tr class="separator:a5555c23c7f6378ce87c2fdafc6947302"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2bcd4c60ab93bb2762e4bfd722b828b2"><td class="memItemLeft" align="right" valign="top">BluetoothDevice&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classit_1_1braceletreader_1_1listeners_1_1_bracelet_listener.html#a2bcd4c60ab93bb2762e4bfd722b828b2">getDevice</a> ()</td></tr>
-<tr class="memdesc:a2bcd4c60ab93bb2762e4bfd722b828b2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the connected device.  <a href="#a2bcd4c60ab93bb2762e4bfd722b828b2">More...</a><br /></td></tr>
 <tr class="separator:a2bcd4c60ab93bb2762e4bfd722b828b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-attribs"></a>
@@ -155,7 +149,7 @@ int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class
 <tr class="separator:aca8a9781d4407a866d458b8b2e5b5bb7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab2556c9ba422f21fc4bef3713a35e37e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab2556c9ba422f21fc4bef3713a35e37e"></a>
 DataManager&lt; <a class="el" href="classit_1_1braceletreader_1_1_data.html">Data</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classit_1_1braceletreader_1_1listeners_1_1_bracelet_listener.html#ab2556c9ba422f21fc4bef3713a35e37e">m_dataManager</a></td></tr>
-<tr class="memdesc:ab2556c9ba422f21fc4bef3713a35e37e"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classit_1_1braceletreader_1_1_data.html" title="A simple structure to contain a single data. ">Data</a> structure to put data receiving by bracelet. <br /></td></tr>
+<tr class="memdesc:ab2556c9ba422f21fc4bef3713a35e37e"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classit_1_1braceletreader_1_1_data.html">Data</a> structure to put data receiving by bracelet. <br /></td></tr>
 <tr class="separator:ab2556c9ba422f21fc4bef3713a35e37e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0580313d81e10b482fbf004a42013cdd"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0580313d81e10b482fbf004a42013cdd"></a>
 BluetoothDevice&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classit_1_1braceletreader_1_1listeners_1_1_bracelet_listener.html#a0580313d81e10b482fbf004a42013cdd">m_device</a></td></tr>
@@ -167,16 +161,14 @@ boolean&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="c
 <tr class="separator:a03e0b9a89f446354e406fca8a6c92c87"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Thread that connect to a single bracelet and receive data. </p>
-<p>Run method must be implemented</p>
+<div class="textblock"><p>Thread that connect to a single bracelet and receive data. Run method must be implemented</p>
 <dl class="section author"><dt>Author</dt><dd>Lucchetti Daniele </dd></dl>
+
+<p>Definition at line <a class="el" href="_bracelet_listener_8java_source.html#l00015">15</a> of file <a class="el" href="_bracelet_listener_8java_source.html">BraceletListener.java</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="a48d27054c1c70c970c4d1e1cc2c92308"></a>
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">it.braceletreader.listeners.BraceletListener.BraceletListener </td>
@@ -208,33 +200,62 @@ boolean&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="c
           <td></td><td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
-
-<p>Constructor. </p>
+<p>Constructor</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">id</td><td>Thread id </td></tr>
     <tr><td class="paramname">braceletReader</td><td>Main class </td></tr>
-    <tr><td class="paramname">dataManager</td><td><a class="el" href="classit_1_1braceletreader_1_1_data.html" title="A simple structure to contain a single data. ">Data</a> structure to put data </td></tr>
+    <tr><td class="paramname">dataManager</td><td><a class="el" href="classit_1_1braceletreader_1_1_data.html">Data</a> structure to put data </td></tr>
     <tr><td class="paramname">device</td><td>Device to get data </td></tr>
   </table>
   </dd>
 </dl>
 
+<p>Definition at line <a class="el" href="_bracelet_listener_8java_source.html#l00037">37</a> of file <a class="el" href="_bracelet_listener_8java_source.html">BraceletListener.java</a>.</p>
+<div class="fragment"><div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    {</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        this.<a class="code" href="classit_1_1braceletreader_1_1listeners_1_1_bracelet_listener.html#ad6341e662c90cff64e5ccf11db61af93">m_id</a> = id;</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        this.<a class="code" href="classit_1_1braceletreader_1_1listeners_1_1_bracelet_listener.html#aca8a9781d4407a866d458b8b2e5b5bb7">m_braceletReader</a> = braceletReader;</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        this.<a class="code" href="classit_1_1braceletreader_1_1listeners_1_1_bracelet_listener.html#ab2556c9ba422f21fc4bef3713a35e37e">m_dataManager</a> = dataManager;</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        this.<a class="code" href="classit_1_1braceletreader_1_1listeners_1_1_bracelet_listener.html#a0580313d81e10b482fbf004a42013cdd">m_device</a> = device;</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        this.<a class="code" href="classit_1_1braceletreader_1_1listeners_1_1_bracelet_listener.html#a03e0b9a89f446354e406fca8a6c92c87">m_stop</a> = <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    }</div>
+<div class="ttc" id="classit_1_1braceletreader_1_1listeners_1_1_bracelet_listener_html_ad6341e662c90cff64e5ccf11db61af93"><div class="ttname"><a href="classit_1_1braceletreader_1_1listeners_1_1_bracelet_listener.html#ad6341e662c90cff64e5ccf11db61af93">it.braceletreader.listeners.BraceletListener.m_id</a></div><div class="ttdeci">int m_id</div><div class="ttdoc">Id of the Thread. </div><div class="ttdef"><b>Definition:</b> <a href="_bracelet_listener_8java_source.html#l00023">BraceletListener.java:23</a></div></div>
+<div class="ttc" id="classit_1_1braceletreader_1_1listeners_1_1_bracelet_listener_html_aca8a9781d4407a866d458b8b2e5b5bb7"><div class="ttname"><a href="classit_1_1braceletreader_1_1listeners_1_1_bracelet_listener.html#aca8a9781d4407a866d458b8b2e5b5bb7">it.braceletreader.listeners.BraceletListener.m_braceletReader</a></div><div class="ttdeci">BraceletReader m_braceletReader</div><div class="ttdoc">Main class to communicate state changing. </div><div class="ttdef"><b>Definition:</b> <a href="_bracelet_listener_8java_source.html#l00024">BraceletListener.java:24</a></div></div>
+<div class="ttc" id="classit_1_1braceletreader_1_1listeners_1_1_bracelet_listener_html_a03e0b9a89f446354e406fca8a6c92c87"><div class="ttname"><a href="classit_1_1braceletreader_1_1listeners_1_1_bracelet_listener.html#a03e0b9a89f446354e406fca8a6c92c87">it.braceletreader.listeners.BraceletListener.m_stop</a></div><div class="ttdeci">boolean m_stop</div><div class="ttdoc">When is set true, the Thread die. </div><div class="ttdef"><b>Definition:</b> <a href="_bracelet_listener_8java_source.html#l00027">BraceletListener.java:27</a></div></div>
+<div class="ttc" id="classit_1_1braceletreader_1_1listeners_1_1_bracelet_listener_html_ab2556c9ba422f21fc4bef3713a35e37e"><div class="ttname"><a href="classit_1_1braceletreader_1_1listeners_1_1_bracelet_listener.html#ab2556c9ba422f21fc4bef3713a35e37e">it.braceletreader.listeners.BraceletListener.m_dataManager</a></div><div class="ttdeci">DataManager&lt; Data &gt; m_dataManager</div><div class="ttdoc">Data structure to put data receiving by bracelet. </div><div class="ttdef"><b>Definition:</b> <a href="_bracelet_listener_8java_source.html#l00025">BraceletListener.java:25</a></div></div>
+<div class="ttc" id="classit_1_1braceletreader_1_1listeners_1_1_bracelet_listener_html_a0580313d81e10b482fbf004a42013cdd"><div class="ttname"><a href="classit_1_1braceletreader_1_1listeners_1_1_bracelet_listener.html#a0580313d81e10b482fbf004a42013cdd">it.braceletreader.listeners.BraceletListener.m_device</a></div><div class="ttdeci">BluetoothDevice m_device</div><div class="ttdoc">Bluetooth device to receive data. </div><div class="ttdef"><b>Definition:</b> <a href="_bracelet_listener_8java_source.html#l00026">BraceletListener.java:26</a></div></div>
+</div><!-- fragment -->
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="a5555c23c7f6378ce87c2fdafc6947302"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void it.braceletreader.listeners.BraceletListener.alt </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Stop the Thread </p>
+
+<p>Definition at line <a class="el" href="_bracelet_listener_8java_source.html#l00049">49</a> of file <a class="el" href="_bracelet_listener_8java_source.html">BraceletListener.java</a>.</p>
+
+<p>Referenced by <a class="el" href="_bracelet_reader_8java_source.html#l00366">it.braceletreader.BraceletReader.createBluetoothConnections()</a>, <a class="el" href="_bracelet_reader_8java_source.html#l00429">it.braceletreader.BraceletReader.notifyListenerStateChanged()</a>, and <a class="el" href="_bracelet_reader_8java_source.html#l00181">it.braceletreader.BraceletReader.onDestroy()</a>.</p>
+<div class="fragment"><div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    {</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        this.<a class="code" href="classit_1_1braceletreader_1_1listeners_1_1_bracelet_listener.html#a03e0b9a89f446354e406fca8a6c92c87">m_stop</a> = <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    }</div>
+<div class="ttc" id="classit_1_1braceletreader_1_1listeners_1_1_bracelet_listener_html_a03e0b9a89f446354e406fca8a6c92c87"><div class="ttname"><a href="classit_1_1braceletreader_1_1listeners_1_1_bracelet_listener.html#a03e0b9a89f446354e406fca8a6c92c87">it.braceletreader.listeners.BraceletListener.m_stop</a></div><div class="ttdeci">boolean m_stop</div><div class="ttdoc">When is set true, the Thread die. </div><div class="ttdef"><b>Definition:</b> <a href="_bracelet_listener_8java_source.html#l00027">BraceletListener.java:27</a></div></div>
+</div><!-- fragment -->
+</div>
+</div>
 <a class="anchor" id="a2bcd4c60ab93bb2762e4bfd722b828b2"></a>
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">BluetoothDevice it.braceletreader.listeners.BraceletListener.getDevice </td>
@@ -243,25 +264,29 @@ boolean&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="c
           <td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
-
-<p>Return the connected device. </p>
+<p>Return the connected device</p>
 <dl class="section return"><dt>Returns</dt><dd>Connected device </dd></dl>
 
+<p>Definition at line <a class="el" href="_bracelet_listener_8java_source.html#l00059">59</a> of file <a class="el" href="_bracelet_listener_8java_source.html">BraceletListener.java</a>.</p>
+
+<p>References <a class="el" href="_bracelet_listener_8java_source.html#l00026">it.braceletreader.listeners.BraceletListener.m_device</a>.</p>
+
+<p>Referenced by <a class="el" href="_bracelet_reader_8java_source.html#l00429">it.braceletreader.BraceletReader.notifyListenerStateChanged()</a>.</p>
+<div class="fragment"><div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    {</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        <span class="keywordflow">return</span> this.<a class="code" href="classit_1_1braceletreader_1_1listeners_1_1_bracelet_listener.html#a0580313d81e10b482fbf004a42013cdd">m_device</a>;</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    }</div>
+<div class="ttc" id="classit_1_1braceletreader_1_1listeners_1_1_bracelet_listener_html_a0580313d81e10b482fbf004a42013cdd"><div class="ttname"><a href="classit_1_1braceletreader_1_1listeners_1_1_bracelet_listener.html#a0580313d81e10b482fbf004a42013cdd">it.braceletreader.listeners.BraceletListener.m_device</a></div><div class="ttdeci">BluetoothDevice m_device</div><div class="ttdoc">Bluetooth device to receive data. </div><div class="ttdef"><b>Definition:</b> <a href="_bracelet_listener_8java_source.html#l00026">BraceletListener.java:26</a></div></div>
+</div><!-- fragment -->
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>it/braceletreader/listeners/BraceletListener.java</li>
+<li>src/it/braceletreader/listeners/<a class="el" href="_bracelet_listener_8java_source.html">BraceletListener.java</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Nov 10 2014 15:02:51 for My Project by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat Nov 15 2014 10:06:58 for My Project by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

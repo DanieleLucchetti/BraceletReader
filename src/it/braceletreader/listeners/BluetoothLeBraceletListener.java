@@ -42,7 +42,7 @@ public class BluetoothLeBraceletListener extends BraceletListener
 	}
 
 	/**
-	 *
+	 * Run implementation
 	 */
 	@Override
 	public void run()
@@ -55,8 +55,10 @@ public class BluetoothLeBraceletListener extends BraceletListener
 	 * 
 	 * My implementation of BluetoothGattCallback to manage callbacks by LE device
 	 * 
+	 * \author Lucchetti Daniele
+	 * 
 	 */
-	class MyBluetoothGattCallback extends BluetoothGattCallback
+	public class MyBluetoothGattCallback extends BluetoothGattCallback
 	{
 		private Iterator<BluetoothLeService> m_iterator;		// Iterator to access to list of BluetoothLeService
 

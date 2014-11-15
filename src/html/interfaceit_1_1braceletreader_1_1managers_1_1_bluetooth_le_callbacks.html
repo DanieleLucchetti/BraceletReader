@@ -38,6 +38,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
       <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
+      <li><a href="files.html"><span>Files</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
         <span class="left">
@@ -91,40 +92,108 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">it.braceletreader.managers.BluetoothLeCallbacks Interface Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-
-<p>Interface to receive callbacks by <a class="el" href="classit_1_1braceletreader_1_1managers_1_1_bluetooth_manager.html" title="Class that manage Bluetooth. ">BluetoothManager</a> when Bluetooth LE is used.  
- <a href="interfaceit_1_1braceletreader_1_1managers_1_1_bluetooth_le_callbacks.html#details">More...</a></p>
 <div class="dynheader">
 Inheritance diagram for it.braceletreader.managers.BluetoothLeCallbacks:</div>
 <div class="dyncontent">
  <div class="center">
   <img src="interfaceit_1_1braceletreader_1_1managers_1_1_bluetooth_le_callbacks.png" usemap="#it.braceletreader.managers.BluetoothLeCallbacks_map" alt=""/>
   <map id="it.braceletreader.managers.BluetoothLeCallbacks_map" name="it.braceletreader.managers.BluetoothLeCallbacks_map">
-<area href="classit_1_1braceletreader_1_1_bracelet_reader.html" title="Main class. " alt="it.braceletreader.BraceletReader" shape="rect" coords="0,56,290,80"/>
+<area href="classit_1_1braceletreader_1_1_bracelet_reader.html" alt="it.braceletreader.BraceletReader" shape="rect" coords="0,56,290,80"/>
 </map>
  </div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a23f6ba4cb10140de91d95ea4710c17d1"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a23f6ba4cb10140de91d95ea4710c17d1"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interfaceit_1_1braceletreader_1_1managers_1_1_bluetooth_le_callbacks.html#a23f6ba4cb10140de91d95ea4710c17d1">leScanStopped</a> (Set&lt; BluetoothDevice &gt; foundDevices)</td></tr>
-<tr class="memdesc:a23f6ba4cb10140de91d95ea4710c17d1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Callback to signal the scan is stopped. <br /></td></tr>
+<tr class="memitem:a23f6ba4cb10140de91d95ea4710c17d1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interfaceit_1_1braceletreader_1_1managers_1_1_bluetooth_le_callbacks.html#a23f6ba4cb10140de91d95ea4710c17d1">leScanStopped</a> (Set&lt; BluetoothDevice &gt; foundDevices)</td></tr>
 <tr class="separator:a23f6ba4cb10140de91d95ea4710c17d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8d8215321d3222c360f87836ceffdf79"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8d8215321d3222c360f87836ceffdf79"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interfaceit_1_1braceletreader_1_1managers_1_1_bluetooth_le_callbacks.html#a8d8215321d3222c360f87836ceffdf79">deviceFound</a> (BluetoothDevice device, int rssi, byte[] scanRecord)</td></tr>
-<tr class="memdesc:a8d8215321d3222c360f87836ceffdf79"><td class="mdescLeft">&#160;</td><td class="mdescRight">Callback to signal a device LE is found. <br /></td></tr>
+<tr class="memitem:a8d8215321d3222c360f87836ceffdf79"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interfaceit_1_1braceletreader_1_1managers_1_1_bluetooth_le_callbacks.html#a8d8215321d3222c360f87836ceffdf79">deviceFound</a> (BluetoothDevice device, int rssi, byte[] scanRecord)</td></tr>
 <tr class="separator:a8d8215321d3222c360f87836ceffdf79"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Interface to receive callbacks by <a class="el" href="classit_1_1braceletreader_1_1managers_1_1_bluetooth_manager.html" title="Class that manage Bluetooth. ">BluetoothManager</a> when Bluetooth LE is used. </p>
+<div class="textblock"><p>Interface to receive callbacks by <a class="el" href="classit_1_1braceletreader_1_1managers_1_1_bluetooth_manager.html">BluetoothManager</a> when Bluetooth LE is used</p>
 <dl class="section author"><dt>Author</dt><dd>Lucchetti Daniele </dd></dl>
-</div><hr/>The documentation for this interface was generated from the following file:<ul>
-<li>it/braceletreader/managers/BluetoothLeCallbacks.java</li>
+
+<p>Definition at line <a class="el" href="_bluetooth_le_callbacks_8java_source.html#l00014">14</a> of file <a class="el" href="_bluetooth_le_callbacks_8java_source.html">BluetoothLeCallbacks.java</a>.</p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="a8d8215321d3222c360f87836ceffdf79"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void it.braceletreader.managers.BluetoothLeCallbacks.deviceFound </td>
+          <td>(</td>
+          <td class="paramtype">BluetoothDevice&#160;</td>
+          <td class="paramname"><em>device</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>rssi</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">byte[]&#160;</td>
+          <td class="paramname"><em>scanRecord</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Callback to signal a device LE is found</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">device</td><td>The found device </td></tr>
+    <tr><td class="paramname">rssi</td><td>The rssi value of found device </td></tr>
+    <tr><td class="paramname">scanRecord</td><td>The content of the advertisement record offered by the remote device </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Implemented in <a class="el" href="classit_1_1braceletreader_1_1_bracelet_reader.html#a5a5a55d5e129028f436c4c0300fe5fd6">it.braceletreader.BraceletReader</a>.</p>
+
+<p>Referenced by <a class="el" href="_bluetooth_manager_8java_source.html#l00145">it.braceletreader.managers.BluetoothManager.onLeScan()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a23f6ba4cb10140de91d95ea4710c17d1"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void it.braceletreader.managers.BluetoothLeCallbacks.leScanStopped </td>
+          <td>(</td>
+          <td class="paramtype">Set&lt; BluetoothDevice &gt;&#160;</td>
+          <td class="paramname"><em>foundDevices</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Callback to signal the scan is stopped</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">foundDevices</td><td>A Set of found devices </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Implemented in <a class="el" href="classit_1_1braceletreader_1_1_bracelet_reader.html#aee2bdf30e8427487ec4e81452032ed40">it.braceletreader.BraceletReader</a>.</p>
+
+<p>Referenced by <a class="el" href="_bluetooth_manager_8java_source.html#l00132">it.braceletreader.managers.BluetoothManager.stopLeScan()</a>.</p>
+
+</div>
+</div>
+<hr/>The documentation for this interface was generated from the following file:<ul>
+<li>src/it/braceletreader/managers/<a class="el" href="_bluetooth_le_callbacks_8java_source.html">BluetoothLeCallbacks.java</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Nov 10 2014 15:02:51 for My Project by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat Nov 15 2014 10:06:58 for My Project by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

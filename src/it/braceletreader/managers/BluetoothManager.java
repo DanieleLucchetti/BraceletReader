@@ -17,7 +17,7 @@ import android.provider.Settings;
  * 
  * Class that manage Bluetooth. First to be used, you need starting it as Service
  * 
- * Author: Lucchetti Daniele
+ * \author Lucchetti Daniele
  * 
  */
 public class BluetoothManager extends Service implements LeScanCallback
@@ -28,7 +28,7 @@ public class BluetoothManager extends Service implements LeScanCallback
 	Set<BluetoothDevice> m_foundDevices;
 
 	/**
-	 * 
+	 * Constructor
 	 */
 	public BluetoothManager()
 	{
@@ -38,7 +38,7 @@ public class BluetoothManager extends Service implements LeScanCallback
 	}
 
 	/**
-	 * 
+	 * Called when the Service is called
 	 */
 	@Override
 	public int onStartCommand( Intent intent, int flags, int startId )
@@ -59,6 +59,7 @@ public class BluetoothManager extends Service implements LeScanCallback
 	 */
 	public void enable()
 	{
+		// Start activity to turn on Bluetooth
 		Intent intent = new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);
 		intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 		startActivity(intent);
@@ -85,6 +86,7 @@ public class BluetoothManager extends Service implements LeScanCallback
 	 */
 	public void showSettings()
 	{
+		// Start the activity to show settings
 		Intent intent = new Intent(Settings.ACTION_BLUETOOTH_SETTINGS);
 		intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 		startActivity(intent);
@@ -101,37 +103,35 @@ public class BluetoothManager extends Service implements LeScanCallback
 	/**
 	 * Start Bluetooth Low Energy scanning
 	 * 
-	 * callback is the one who manages the found devices
-	 * 
-	 * timeout indicates when stopping scan automatically is milliseconds
+	 * \param callback Who manages the found devices
+	 * \param timeout Indicates when stopping scan automatically is milliseconds
 	 */
 	public void startLeScan( final BluetoothLeCallbacks callback, int timeout )
 	{
 		this.m_callback = callback;
 		this.m_foundDevices = new HashSet<BluetoothDevice>();
+		// Create an Handler that will run after timeout milliseconds to stop scanning 
 		Handler handler = new Handler();
 		handler.postDelayed(new Runnable()
 		{
 			@Override
 			public void run()
 			{
-				m_bluetoothAdapter.stopLeScan(BluetoothManager.this);
-				m_callback.leScanStopped(m_foundDevices);
-				m_foundDevices = null;
-				m_callback = null;
+				// Le scan is stopped
+				stopLeScan();
 			}
 		}, timeout);
 
+		// Le scan is started
 		this.m_bluetoothAdapter.startLeScan(this);
 	}
 
 	/**
 	 * Stop Bluetooth Low Energy scanning
-	 * 
-	 * callback is the one who manages the found devices
 	 */
 	public void stopLeScan()
 	{
+		// Le scan is stopped and it is notified to callback
 		this.m_bluetoothAdapter.stopLeScan(this);
 		this.m_callback.leScanStopped(this.m_foundDevices);
 		this.m_foundDevices = null;
@@ -144,6 +144,7 @@ public class BluetoothManager extends Service implements LeScanCallback
 	@Override
 	public void onLeScan( BluetoothDevice device, int rssi, byte[] scanRecord )
 	{
+		// The device is added to the list of found devices and it is notified to callback
 		this.m_foundDevices.add(device);
 		this.m_callback.deviceFound(device, rssi, scanRecord);
 	}

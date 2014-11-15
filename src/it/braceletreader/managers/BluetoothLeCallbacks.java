@@ -15,11 +15,17 @@ public interface BluetoothLeCallbacks
 {
 	/**
 	 * Callback to signal the scan is stopped
+	 * 
+	 * \param foundDevices A Set of found devices
 	 */
 	public void leScanStopped( Set<BluetoothDevice> foundDevices );
 
 	/**
 	 * Callback to signal a device LE is found
+	 * 
+	 * \param device The found device
+	 * \param rssi The rssi value of found device
+	 * \param scanRecord The content of the advertisement record offered by the remote device
 	 */
 	public void deviceFound( BluetoothDevice device, int rssi, byte[] scanRecord );
 }
