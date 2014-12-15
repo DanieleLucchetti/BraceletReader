@@ -2,6 +2,9 @@ package it.braceletreader.sensortag;
 
 import java.util.UUID;
 
+import android.bluetooth.BluetoothGattCharacteristic;
+
+import it.braceletreader.Data;
 import it.braceletreader.listeners.BluetoothLeService;
 
 /**
@@ -13,6 +16,11 @@ import it.braceletreader.listeners.BluetoothLeService;
  */
 public class SensorTagAccelerometer implements BluetoothLeService
 {
+	@Override
+	public String getIdentification()
+	{
+		return "accelerometer";
+	}
 
 	@Override
 	public UUID getUUIDService()
@@ -49,13 +57,14 @@ public class SensorTagAccelerometer implements BluetoothLeService
 	@Override
 	public UUID getUUIDPeriod()
 	{
-		return null;
+		return UUID.fromString("F000AA13-0451-4000-B000-000000000000");
 	}
 
 	@Override
-	public byte getPeriodValue()
+	public byte[] getPeriodValue()
 	{
-		return 0;
+		byte[] value = { 0x0A };
+		return value;
 	}
 
 	@Override
@@ -65,8 +74,16 @@ public class SensorTagAccelerometer implements BluetoothLeService
 	}
 
 	@Override
-	public String toString()
+	public Data createData( BluetoothGattCharacteristic characteristic )
 	{
-		return "accelerometer";
+		Integer x = characteristic.getIntValue(BluetoothGattCharacteristic.FORMAT_SINT8, 0);
+		Integer y = characteristic.getIntValue(BluetoothGattCharacteristic.FORMAT_SINT8, 1);
+		Integer z = characteristic.getIntValue(BluetoothGattCharacteristic.FORMAT_SINT8, 2) * -1;
+
+		double scaledX = x / 64.0;
+		double scaledY = y / 64.0;
+		double scaledZ = z / 64.0;
+
+		return new Data("accelerometer", System.currentTimeMillis(), scaledX, scaledY, scaledZ);
 	}
 }

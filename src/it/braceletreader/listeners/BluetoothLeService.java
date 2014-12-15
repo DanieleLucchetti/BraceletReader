@@ -1,6 +1,10 @@
 package it.braceletreader.listeners;
 
+import it.braceletreader.Data;
+
 import java.util.UUID;
+
+import android.bluetooth.BluetoothGattCharacteristic;
 
 /**
  * 
@@ -11,6 +15,13 @@ import java.util.UUID;
  */
 public interface BluetoothLeService
 {
+	/**
+	 * Return an identification as String
+	 * 
+	 * \return Identification
+	 */
+	public String getIdentification();
+
 	/**
 	 * Return the UUID of Service to active
 	 * 
@@ -58,7 +69,7 @@ public interface BluetoothLeService
 	 * 
 	 * \return value
 	 */
-	public byte getPeriodValue();
+	public byte[] getPeriodValue();
 
 	/**
 	 * Return the UUID of Descriptor of Characteristic
@@ -66,4 +77,12 @@ public interface BluetoothLeService
 	 * \return UUID
 	 */
 	public UUID getUUIDDescriptor();
+
+	/**
+	 * Create a Data containing all information with the correct elaboration
+	 * 
+	 * \param characteristic The gatt characteristic with the data to elaborate
+	 * \return The Data object
+	 */
+	public Data createData( BluetoothGattCharacteristic characteristic );
 }

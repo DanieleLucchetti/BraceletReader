@@ -1,8 +1,11 @@
 package it.braceletreader.sensortag;
 
+import it.braceletreader.Data;
 import it.braceletreader.listeners.BluetoothLeService;
 
 import java.util.UUID;
+
+import android.bluetooth.BluetoothGattCharacteristic;
 
 /**
  * 
@@ -13,6 +16,11 @@ import java.util.UUID;
  */
 public class SensorTagGyroscope implements BluetoothLeService
 {
+	@Override
+	public String getIdentification()
+	{
+		return "gyroscope";
+	}
 
 	@Override
 	public UUID getUUIDService()
@@ -49,13 +57,14 @@ public class SensorTagGyroscope implements BluetoothLeService
 	@Override
 	public UUID getUUIDPeriod()
 	{
-		return null;
+		return UUID.fromString("F000AA53-0451-4000-B000-000000000000");
 	}
 
 	@Override
-	public byte getPeriodValue()
+	public byte[] getPeriodValue()
 	{
-		return 0;
+		byte[] value = { 0x0A };
+		return value;
 	}
 
 	@Override
@@ -65,8 +74,20 @@ public class SensorTagGyroscope implements BluetoothLeService
 	}
 
 	@Override
-	public String toString()
+	public Data createData( BluetoothGattCharacteristic characteristic )
 	{
-		return "gyroscope";
+		float y = shortSignedAtOffset(characteristic, 0) * (500f / 65536f) * -1;
+		float x = shortSignedAtOffset(characteristic, 2) * (500f / 65536f);
+		float z = shortSignedAtOffset(characteristic, 4) * (500f / 65536f);
+
+		return new Data("gyroscope", System.currentTimeMillis(), x, y, z);
+	}
+
+	private static Integer shortSignedAtOffset( BluetoothGattCharacteristic characteristic, int offset )
+	{
+		Integer lowerByte = characteristic.getIntValue(BluetoothGattCharacteristic.FORMAT_UINT8, offset);
+		Integer upperByte = characteristic.getIntValue(BluetoothGattCharacteristic.FORMAT_SINT8, offset + 1);
+
+		return (upperByte << 8) + lowerByte;
 	}
 }

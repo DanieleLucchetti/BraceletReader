@@ -128,7 +128,9 @@ public class BraceletReader extends FragmentActivity implements android.content.
 		this.m_initialWifiState = this.m_wifiManager.isWifiEnabled();
 
 		// Initialization of server address (//TODO this line must remove)
-		this.m_sharedData.put(BraceletReader.SERVER_ADDRESS, getString(R.string.server_URL));
+		//this.m_sharedData.put(BraceletReader.SERVER_ADDRESS, getString(R.string.server_URL));
+		this.m_sharedData.put(BraceletReader.SERVER_ADDRESS, "http://192.168.43.172:8000");
+		this.m_sharedData.put(BraceletReader.USERNAME, "Prova");
 	}
 
 	/**
@@ -299,7 +301,7 @@ public class BraceletReader extends FragmentActivity implements android.content.
 			NetworkInfo networkInfo = this.m_connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_WIFI);
 			if ( networkInfo != null && networkInfo.isConnected() )
 			{
-				this.m_sender = new Sender(this.m_dataManager, (String) this.m_sharedData.get(BraceletReader.SERVER_ADDRESS));
+				this.m_sender = new Sender(this.m_dataManager, (String) this.m_sharedData.get(BraceletReader.SERVER_ADDRESS), (String) this.m_sharedData.get(BraceletReader.USERNAME));
 				this.m_sender.start();
 			} else
 			{
@@ -392,7 +394,7 @@ public class BraceletReader extends FragmentActivity implements android.content.
 				// It is created the list of Services that we want activing
 				List<BluetoothLeService> services = new ArrayList<BluetoothLeService>();
 				services.add(new SensorTagAccelerometer());
-				// services.add(new SensorTagGyroscope());
+				//services.add(new SensorTagGyroscope());
 				this.m_braceletListener[i] = new BluetoothLeBraceletListener(i, this, this.m_dataManager, devices.get(i), services);
 				this.m_braceletListener[i].start();
 			}

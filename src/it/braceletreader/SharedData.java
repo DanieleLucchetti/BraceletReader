@@ -65,7 +65,7 @@ public class SharedData extends Observable
 	/**
 	 * Return the only instance of SharedData
 	 * 
-	 * @return The instance
+	 * \return The instance
 	 */
 	public static SharedData getInstance()
 	{

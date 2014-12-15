@@ -13,6 +13,7 @@ import android.bluetooth.BluetoothGattCallback;
 import android.bluetooth.BluetoothGattCharacteristic;
 import android.bluetooth.BluetoothGattDescriptor;
 import android.bluetooth.BluetoothGattService;
+import android.util.Log;
 
 /**
  * 
@@ -61,6 +62,7 @@ public class BluetoothLeBraceletListener extends BraceletListener
 	public class MyBluetoothGattCallback extends BluetoothGattCallback
 	{
 		private Iterator<BluetoothLeService> m_iterator;		// Iterator to access to list of BluetoothLeService
+		private boolean m_periodCharacteristic;					// Indicate that it is time to set notification's period
 
 		/**
 		 * Called when the connection state change
@@ -68,6 +70,7 @@ public class BluetoothLeBraceletListener extends BraceletListener
 		@Override
 		public void onConnectionStateChange( BluetoothGatt gatt, int status, int newState )
 		{
+			this.m_periodCharacteristic = false;
 			if ( status == BluetoothGatt.GATT_SUCCESS && newState == BluetoothGatt.STATE_CONNECTED )
 			{
 				// If the device is connected, the Services are loaded
@@ -101,16 +104,32 @@ public class BluetoothLeBraceletListener extends BraceletListener
 		{
 			if ( this.m_iterator.hasNext() )
 			{
-				// If there is an other sensor to active, it will be turned on
+				// If not all list is scanned, the scan must be completed
 				BluetoothLeService currentService = this.m_iterator.next();
-				writeConfigurationCharacteristic(gatt, currentService);
+				if ( !this.m_periodCharacteristic )
+				{
+					// If it is time to turn on sensor, it will be done
+					writeConfigurationCharacteristic(gatt, currentService);
+				} else
+				{
+					// If it is time to set notification's period, it will be done
+					writePeriodCharacteristic(gatt, currentService);
+				}
 			} else
 			{
 				// Otherwise the list of service is scanned from the beginning
 				this.m_iterator = m_services.iterator();
 				BluetoothLeService service = this.m_iterator.next();
-				// Read characteristic of first Service
-				readCharacteristic(gatt, service);
+				this.m_periodCharacteristic = !this.m_periodCharacteristic;
+				if ( this.m_periodCharacteristic )
+				{
+					// If the notification's period must be already setted, it will be done
+					writePeriodCharacteristic(gatt, service);
+				} else
+				{
+					// Otherwise read characteristic of first Service to enable notifications
+					readCharacteristic(gatt, service);
+				}
 			}
 		}
 
@@ -150,36 +169,20 @@ public class BluetoothLeBraceletListener extends BraceletListener
 		}
 
 		/**
-		 * Called when the value of Services enabled changing
+		 * Called when the value of enabled Services changing
 		 */
 		@Override
 		public void onCharacteristicChanged( BluetoothGatt gatt, BluetoothGattCharacteristic characteristic )
 		{
-			Integer x = characteristic.getIntValue(BluetoothGattCharacteristic.FORMAT_SINT8, 0);
-			Integer y = characteristic.getIntValue(BluetoothGattCharacteristic.FORMAT_SINT8, 1);
-			Integer z = characteristic.getIntValue(BluetoothGattCharacteristic.FORMAT_SINT8, 2) * -1;
-
-			final double scaledX = x / 64.0;
-			final double scaledY = y / 64.0;
-			final double scaledZ = z / 64.0;
-
-			Data data = new Data();
-			data.setTimestamp(System.currentTimeMillis());
 			int i = 0;
-			BluetoothLeService service;
-			while ( i < m_services.size() )
+			// Search the correct service to which the data appertain
+			BluetoothLeService service = m_services.get(i);
+			while ( characteristic.getUuid().compareTo(service.getUUIDData()) != 0 )
 			{
-				service = m_services.get(i);
-				if ( characteristic.getUuid().equals(service.getUUIDData()) )
-				{
-					data.setType(service.toString());
-					break;
-				}
-				i++;
+				service = m_services.get(++i);
 			}
-			data.setX(scaledX);
-			data.setY(scaledY);
-			data.setZ(scaledZ);
+			// Construct the Data
+			Data data = service.createData(characteristic);
 
 			m_braceletReader.updateUI(data); // To update the UI
 			m_dataManager.add(data);
@@ -198,6 +201,21 @@ public class BluetoothLeBraceletListener extends BraceletListener
 			byte[] value = service.getConfigurationValue();
 			config.setValue(value);
 			gatt.writeCharacteristic(config);
+		}
+
+		/**
+		 * Write the period value of service in period characteristic
+		 * 
+		 * \param gatt Gatt device
+		 * \param service Service to active
+		 */
+		private void writePeriodCharacteristic( BluetoothGatt gatt, BluetoothLeService service )
+		{
+			BluetoothGattService gattService = gatt.getService(service.getUUIDService());
+			BluetoothGattCharacteristic period = gattService.getCharacteristic(service.getUUIDPeriod());
+			byte[] value = service.getPeriodValue();
+			period.setValue(value);
+			gatt.writeCharacteristic(period);
 		}
 
 		/**

@@ -1,5 +1,8 @@
 package it.braceletreader;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 /**
  * 
  * A simple structure to contain a single data
@@ -32,7 +35,7 @@ public class Data
 	 * \param y Y-axis value
 	 * \param z Z-axis value
 	 */
-	public Data(String type, long timestamp, double x, double y, double z)
+	public Data( String type, long timestamp, double x, double y, double z )
 	{
 		this.setType(type);
 		this.setTimestamp(timestamp);
@@ -142,11 +145,31 @@ public class Data
 	}
 
 	/**
-	 *
+	 * Return a JSONObject containing all data
+	 * 
+	 * \return The JSONObject
 	 */
-	@Override
-	public String toString()
+	public JSONObject toJSONObject()
 	{
-		return "{\"type\":\"" + m_type + "\",\"timestamp\":" + m_timestamp + ",\"value\":[" + m_x + "," + m_y + "," + m_z + "]}";
+		JSONObject obj = new JSONObject();
+		try
+		{
+			obj.put("type", this.m_type);
+			obj.put("timestamp", this.m_timestamp);
+			obj.put("x", this.m_x);
+			obj.put("y", this.m_y);
+			obj.put("z", this.m_z);
+			/*
+			 * JSONArray value = new JSONArray();
+			 * value.put(this.m_x);
+			 * value.put(this.m_y);
+			 * value.put(this.m_z);
+			 * obj.put("value", value);
+			 */
+		} catch ( JSONException e )
+		{
+			e.printStackTrace();
+		}
+		return obj;
 	}
 }
