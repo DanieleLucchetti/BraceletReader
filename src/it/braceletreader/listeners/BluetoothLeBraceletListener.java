@@ -181,7 +181,7 @@ public class BluetoothLeBraceletListener extends BraceletListener
 			{
 				service = m_services.get(++i);
 			}
-			// Construct the Data
+			// Data construction
 			Data data = service.createData(characteristic);
 
 			m_braceletReader.updateUI(data); // To update the UI
@@ -243,9 +243,9 @@ public class BluetoothLeBraceletListener extends BraceletListener
 			BluetoothGattCharacteristic gattCharacteristic = gattService.getCharacteristic(service.getUUIDData());
 			/* Local enabling notification */
 			gatt.setCharacteristicNotification(gattCharacteristic, true);
+			/* Remote enabling notification */
 			BluetoothGattDescriptor descriptor = gattCharacteristic.getDescriptor(service.getUUIDDescriptor());
 			descriptor.setValue(service.getNotificationConfigValue());
-			/* Remote enabling notification */
 			gatt.writeDescriptor(descriptor);
 		}
 	};

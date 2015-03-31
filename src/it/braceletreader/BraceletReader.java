@@ -17,6 +17,7 @@ import java.util.Set;
 import java.util.UUID;
 
 import android.app.ActionBar;
+import android.app.ActionBar.Tab;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.bluetooth.BluetoothDevice;
@@ -101,8 +102,14 @@ public class BraceletReader extends FragmentActivity implements android.content.
 		bar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
 		this.m_mainFragment = new MainFragment();
 		this.m_settingFragment = new SettingFragment(this);
-		bar.addTab(bar.newTab().setText(getString(R.string.tab1_name)).setTabListener(this.m_mainFragment));
-		bar.addTab(bar.newTab().setText(getString(R.string.tab2_name)).setTabListener(this.m_settingFragment));
+		Tab mainTab = bar.newTab();
+		mainTab.setText(getString(R.string.tab1_name));
+		mainTab.setTabListener(this.m_mainFragment);
+		Tab settingsTab = bar.newTab();
+		settingsTab.setText(getString(R.string.tab2_name));
+		settingsTab.setTabListener(this.m_settingFragment);
+		bar.addTab(mainTab);
+		bar.addTab(settingsTab);
 
 		/* Handler definition */
 		this.m_handler = new Handler(Looper.getMainLooper())
@@ -127,9 +134,9 @@ public class BraceletReader extends FragmentActivity implements android.content.
 		this.m_connectivityManager = (ConnectivityManager) getSystemService(CONNECTIVITY_SERVICE);
 		this.m_initialWifiState = this.m_wifiManager.isWifiEnabled();
 
-		// Initialization of server address (//TODO this line must remove)
+		// Initialization of server address (//TODO this lines must remove)
 		//this.m_sharedData.put(BraceletReader.SERVER_ADDRESS, getString(R.string.server_URL));
-		this.m_sharedData.put(BraceletReader.SERVER_ADDRESS, "http://192.168.43.172:8000");
+		this.m_sharedData.put(BraceletReader.SERVER_ADDRESS, "http://192.168.1.6:8000");
 		this.m_sharedData.put(BraceletReader.USERNAME, "Prova");
 	}
 
@@ -144,7 +151,7 @@ public class BraceletReader extends FragmentActivity implements android.content.
 		 */
 		if ( this.m_bluetoothManager == null )
 		{
-			// Create a ServiceConnection object and bind the BLuetooth service. ServiceConnection give us information about binding
+			// Create a ServiceConnection object and bind the Bluetooth service. ServiceConnection give us information about binding
 			this.m_serviceConnection = new MyServiceConnection();
 			bindService(new Intent(this, BluetoothManager.class), this.m_serviceConnection, Context.BIND_AUTO_CREATE);
 		}
@@ -290,24 +297,30 @@ public class BraceletReader extends FragmentActivity implements android.content.
 	 */
 	public void startWifiConnection()
 	{
-		if ( this.m_braceletListener != null && this.m_sender == null )
+		if ( this.m_braceletListener != null )
 		{
-			if ( !this.m_wifiManager.isWifiEnabled() )
+			if ( this.m_sender == null || (this.m_sender != null && !this.m_sender.isAlive()) )
 			{
-				this.m_wifiManager.setWifiEnabled(true);
-			}
+				if ( !this.m_wifiManager.isWifiEnabled() )
+				{
+					this.m_wifiManager.setWifiEnabled(true);
+				}
 
-			/* Check Network and start thread to send data to server */
-			NetworkInfo networkInfo = this.m_connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_WIFI);
-			if ( networkInfo != null && networkInfo.isConnected() )
-			{
-				this.m_sender = new Sender(this.m_dataManager, (String) this.m_sharedData.get(BraceletReader.SERVER_ADDRESS), (String) this.m_sharedData.get(BraceletReader.USERNAME));
-				this.m_sender.start();
+				/* Check Network and start thread to send data to server */
+				NetworkInfo networkInfo = this.m_connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_WIFI);
+				if ( networkInfo != null && networkInfo.isConnected() )
+				{
+					this.m_sender = new Sender(this.m_dataManager, (String) this.m_sharedData.get(BraceletReader.SERVER_ADDRESS), (String) this.m_sharedData.get(BraceletReader.USERNAME));
+					this.m_sender.start();
+				} else
+				{
+					// Wifi settings are opened if device is not connected to network
+					Intent intent = new Intent(Settings.ACTION_WIFI_SETTINGS);
+					startActivity(intent);
+				}
 			} else
 			{
-				// Wifi settings are opened if device is not connected to network
-				Intent intent = new Intent(Settings.ACTION_WIFI_SETTINGS);
-				startActivity(intent);
+				this.m_sender.alt();
 			}
 		}
 	}
@@ -391,7 +404,7 @@ public class BraceletReader extends FragmentActivity implements android.content.
 			// If the user want using Bluetooth LE devices
 			for ( int i = 0; i < devices.size(); i++ )
 			{
-				// It is created the list of Services that we want activing
+				// It is created the list of Services that we want activating
 				List<BluetoothLeService> services = new ArrayList<BluetoothLeService>();
 				services.add(new SensorTagAccelerometer());
 				//services.add(new SensorTagGyroscope());

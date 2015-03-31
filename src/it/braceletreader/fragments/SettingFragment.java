@@ -42,7 +42,7 @@ public class SettingFragment extends MyFragment implements Observer
 	private Handler m_handler;						// Handler to update the UI
 
 	private ImageButton m_imageButton;				// ImageButton to pick user image
-	private Button m_braceletsSelectionButton;		// Button to search and select bracelets 
+	private Button m_braceletsSelectionButton;		// Button to search and select bracelets
 	private Button m_wifiSelectionButton;			// Button to search and select Wifi
 	private TextView m_bluetoothStateTextview;		// TextView to show Bluetooth state
 	private TextView m_wifiStateTextview;			// TextView to show Wifi state
@@ -129,6 +129,26 @@ public class SettingFragment extends MyFragment implements Observer
 		{
 			this.m_serverAddressEdittext.setText((String) this.m_sharedData.get(BraceletReader.SERVER_ADDRESS));
 		}
+		// TextChangeListener to get new username inserted
+		this.m_serverAddressEdittext.addTextChangedListener(new TextWatcher()
+		{
+
+			@Override
+			public void onTextChanged( CharSequence s, int start, int before, int count )
+			{
+			}
+
+			@Override
+			public void beforeTextChanged( CharSequence s, int start, int count, int after )
+			{
+			}
+
+			@Override
+			public void afterTextChanged( Editable s )
+			{
+				m_sharedData.put(BraceletReader.SERVER_ADDRESS, m_nameEdittext.getText().toString());
+			}
+		});
 
 		// OnClickListeren to pick image for user image
 		this.m_imageButton.setOnClickListener(new OnClickListener()

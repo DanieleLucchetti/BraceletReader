@@ -38,7 +38,7 @@ public class BluetoothManager extends Service implements LeScanCallback
 	}
 
 	/**
-	 * Called when the Service is called
+	 * Called when the Service is launched
 	 */
 	@Override
 	public int onStartCommand( Intent intent, int flags, int startId )
