@@ -109,6 +109,19 @@ public class Sender extends Thread
 				e.printStackTrace();
 			}
 		}
+
+		/* Create disconnect */
+		post = new HttpPost(this.m_URL);
+		post.setHeader("Content-type", "application/json");
+		try
+		{
+			post.setEntity(new StringEntity("{\n\"name\":\"" + this.m_username + "\",\n\"id\":"+id+"\n}"));
+			client.execute(post);
+			sleep(500);
+		} catch ( Exception e )
+		{
+			e.printStackTrace();
+		}
 	}
 
 	/**

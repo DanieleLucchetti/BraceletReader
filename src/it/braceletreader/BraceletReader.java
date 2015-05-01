@@ -136,7 +136,7 @@ public class BraceletReader extends FragmentActivity implements android.content.
 
 		// Initialization of server address (//TODO this lines must remove)
 		//this.m_sharedData.put(BraceletReader.SERVER_ADDRESS, getString(R.string.server_URL));
-		this.m_sharedData.put(BraceletReader.SERVER_ADDRESS, "http://192.168.1.6:8000");
+		this.m_sharedData.put(BraceletReader.SERVER_ADDRESS, "http://192.168.1.4:8000");
 		this.m_sharedData.put(BraceletReader.USERNAME, "Prova");
 	}
 

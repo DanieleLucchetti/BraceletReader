@@ -146,7 +146,7 @@ public class SettingFragment extends MyFragment implements Observer
 			@Override
 			public void afterTextChanged( Editable s )
 			{
-				m_sharedData.put(BraceletReader.SERVER_ADDRESS, m_nameEdittext.getText().toString());
+				m_sharedData.put(BraceletReader.SERVER_ADDRESS, m_serverAddressEdittext.getText().toString());
 			}
 		});
 
